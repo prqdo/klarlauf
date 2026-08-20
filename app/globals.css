@@ -257,11 +257,6 @@
   }
 }
 
-.liveDot--error {
-  background: var(--orange);
-  box-shadow: 0 0 0 4px rgba(243, 111, 61, .15);
-}
-
 .queueMessage {
   margin: 0 0 28px;
   padding: 17px 18px;

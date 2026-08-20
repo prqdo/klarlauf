@@ -137,7 +137,6 @@ export default function Home() {
         <p className="systemLabel">{t.systemLabel}</p>
         <div className="topbarMeta">
           <button className="languageSwitch" onClick={() => setLanguage((current) => current === "en" ? "de" : "en")} type="button" aria-label={t.languageButtonLabel}>{t.languageButton}</button>
-          <span className="databaseState"><span className={`liveDot${apiStatus === "error" ? " liveDot--error" : ""}`} />{t.database[apiStatus]}</span>
         </div>
       </header>
 
