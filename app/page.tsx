@@ -174,7 +174,7 @@ export default function Home() {
   return (
     <main>
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="OrderFlow home"><span>ORDER</span><span>FLOW</span></a>
+        <a className="brand" href="#top" aria-label="Klarlauf home"><span>KLAR</span><span>LAUF</span></a>
         <p className="systemLabel">Studio operations / desk 01</p>
         <div className="topbarMeta">
           <span className={`liveDot${apiStatus === "error" ? " liveDot--error" : ""}`} />

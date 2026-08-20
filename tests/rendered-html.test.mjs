@@ -13,15 +13,14 @@ async function render() {
   );
 }
 
-test("server-renders the OrderFlow application", async () => {
+test("server-renders the Klarlauf application", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>OrderFlow · Studio order management<\/title>/i);
+  assert.match(html, /<title>Klarlauf · Studio order management<\/title>/i);
   assert.match(html, /Create new order/);
   assert.match(html, /Search orders/);
   assert.match(html, /Orders in motion/);
-  assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });

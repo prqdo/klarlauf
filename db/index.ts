@@ -48,7 +48,7 @@ const seedOrders = [
 let databaseReady: Promise<void> | undefined;
 
 function getD1(): D1Database {
-  if (!env.DB) throw new Error("The OrderFlow database binding is unavailable.");
+  if (!env.DB) throw new Error("The Klarlauf database binding is unavailable.");
   return env.DB;
 }
 
