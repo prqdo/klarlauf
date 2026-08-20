@@ -21,6 +21,7 @@ test("server-renders the OrderFlow application", async () => {
   const html = await response.text();
   assert.match(html, /<title>OrderFlow · Studio order management<\/title>/i);
   assert.match(html, /Create new order/);
+  assert.match(html, /Search orders/);
   assert.match(html, /Orders in motion/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });

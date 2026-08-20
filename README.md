@@ -1,4 +1,24 @@
-# vinext-starter
+# OrderFlow
+
+A full-stack order-management dashboard built with React, vinext, Cloudflare D1, and SQL.
+
+## Implemented features
+
+- Load and filter orders
+- Search by client, project, or order ID
+- Create orders with validation
+- Edit order details and workflow status
+- Delete orders with confirmation
+- Persist every change in a D1 database
+
+## API
+
+- `GET /api/orders` lists orders
+- `POST /api/orders` creates an order
+- `PATCH /api/orders/:id` updates an order
+- `DELETE /api/orders/:id` deletes an order
+
+## Development notes
 
 A clean full-stack starter running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and

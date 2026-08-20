@@ -80,7 +80,19 @@
   backdrop-filter: blur(4px);
 }
 
+.modalDismiss {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: default;
+}
+
 .orderModal {
+  position: relative;
   width: min(620px, 100%);
   max-height: calc(100vh - 40px);
   overflow-y: auto;
@@ -138,7 +150,8 @@
   text-transform: uppercase;
 }
 
-.orderForm input {
+.orderForm input,
+.orderForm select {
   width: 100%;
   padding: 13px 0;
   border: 0;
@@ -149,9 +162,38 @@
   font: 700 1rem Arial, Helvetica, sans-serif;
 }
 
-.orderForm input:focus {
+.orderForm select {
+  appearance: none;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: calc(100% - 15px) 55%, calc(100% - 9px) 55%;
+  background-repeat: no-repeat;
+  background-size: 6px 6px, 6px 6px;
+}
+
+.orderForm input:focus,
+.orderForm select:focus {
   border-color: var(--orange);
   box-shadow: 0 3px 0 var(--orange);
+}
+
+.formActions--edit {
+  justify-content: space-between;
+}
+
+.deleteButton {
+  color: var(--orange);
+  background: transparent;
+}
+
+.deleteButton:hover {
+  color: #fff;
+  background: var(--orange);
+}
+
+.deleteButton:disabled {
+  cursor: wait;
+  opacity: .65;
 }
 
 .formRow {
@@ -231,6 +273,41 @@
 .queueMessage--error {
   border-color: var(--orange);
   background: rgba(243, 111, 61, .12);
+}
+
+.boardTools {
+  min-width: min(100%, 560px);
+  display: grid;
+  justify-items: end;
+  gap: 16px;
+}
+
+.orderSearch {
+  width: min(100%, 360px);
+}
+
+.orderSearch span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.orderSearch input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  outline: none;
+  color: var(--ink);
+  background: rgba(248, 245, 234, .65);
+  font: 700 .8rem "Courier New", monospace;
+}
+
+.orderSearch input:focus {
+  box-shadow: 4px 4px 0 var(--acid);
 }
 
 .submitOrder:disabled {
@@ -317,5 +394,15 @@
   .workspaceHeader .addOrder {
     min-height: 56px;
     grid-column: 1 / -1;
+  }
+
+  .boardTools {
+    width: 100%;
+    min-width: 0;
+    justify-items: stretch;
+  }
+
+  .orderSearch {
+    width: 100%;
   }
 }

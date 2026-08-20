@@ -109,3 +109,49 @@ export async function insertOrder(input: Omit<Order, "id" | "status">): Promise<
   if (!row) throw new Error("The database did not return the created order.");
   return toOrder(row);
 }
+
+function toDatabaseId(publicId: string) {
+  const match = /^OF-(\d+)$/.exec(publicId);
+  if (!match) return null;
+
+  const databaseId = Number(match[1]) - 1044;
+  return Number.isInteger(databaseId) && databaseId > 0 ? databaseId : null;
+}
+
+export async function updateOrder(
+  publicId: string,
+  input: Omit<Order, "id">,
+): Promise<Order | null> {
+  await initializeDatabase();
+  const databaseId = toDatabaseId(publicId);
+  if (!databaseId) return null;
+
+  const row = await getD1()
+    .prepare(
+      "UPDATE orders SET client = ?, project = ?, due = ?, value_cents = ?, status = ? WHERE id = ? RETURNING id, client, project, due, value_cents, status",
+    )
+    .bind(
+      input.client,
+      input.project,
+      input.due,
+      Math.round(input.value * 100),
+      input.status,
+      databaseId,
+    )
+    .first<OrderRow>();
+
+  return row ? toOrder(row) : null;
+}
+
+export async function deleteOrder(publicId: string): Promise<boolean> {
+  await initializeDatabase();
+  const databaseId = toDatabaseId(publicId);
+  if (!databaseId) return false;
+
+  const result = await getD1()
+    .prepare("DELETE FROM orders WHERE id = ?")
+    .bind(databaseId)
+    .run();
+
+  return (result.meta.changes ?? 0) > 0;
+}
