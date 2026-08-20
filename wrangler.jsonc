@@ -8,7 +8,7 @@
     {
       "binding": "DB",
       "database_name": "klarlauf-db",
-      "database_id": "00000000-0000-4000-8000-000000000000",
+      "database_id": "15e0a138-3eac-480f-a428-2174e8dd03ee",
       "migrations_dir": "drizzle"
     }
   ]
