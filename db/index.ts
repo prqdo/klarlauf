@@ -39,10 +39,10 @@ const createStatusIndexSql = `
 `;
 
 const seedOrders = [
-  ["Daydream Records", "Artist press kit", "2026-08-19", 76000, "Ready"],
-  ["Good Day Bikes", "Product page system", "2026-08-21", 234000, "Review"],
-  ["Paper Plane Studio", "Campaign asset set", "2026-08-20", 92000, "In progress"],
-  ["Corner Coffee", "Landing page refresh", "2026-08-22", 148000, "New"],
+  ["Maya Chen", "Artist press kit", "2026-08-19", 76000, "Ready"],
+  ["Alex Morgan", "Product page system", "2026-08-21", 234000, "Review"],
+  ["Nina Costa", "Campaign asset set", "2026-08-20", 92000, "In progress"],
+  ["Leo Martin", "Landing page refresh", "2026-08-22", 148000, "New"],
 ] as const;
 
 let databaseReady: Promise<void> | undefined;
