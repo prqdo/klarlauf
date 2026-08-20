@@ -2,14 +2,14 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "klarlauf",
   "main": "worker/index.ts",
-  "compatibility_date": "2026-08-20",
+  "compatibility_date": "2026-05-22",
   "compatibility_flags": ["nodejs_compat"],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "klarlauf-db",
       "database_id": "15e0a138-3eac-480f-a428-2174e8dd03ee",
-      "migrations_dir": "drizzle"
+      "migrations_dir": "migrations"
     }
   ]
 }

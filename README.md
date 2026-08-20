@@ -47,4 +47,4 @@ npm test
 
 ## Deployment
 
-Klarlauf deploys to Cloudflare Workers and uses a D1 database bound as `DB`. Before the first deployment, replace the placeholder database ID in `wrangler.jsonc` with the ID created in the Cloudflare dashboard, then apply the migration in `drizzle/`.
+Klarlauf deploys to Cloudflare Workers and uses a D1 database bound as `DB`. Before the first deployment, connect the D1 database in `wrangler.jsonc`, then apply the SQL files in `migrations/`.

@@ -23,4 +23,6 @@ test("server-renders the Klarlauf application", async () => {
   assert.match(html, /Create new order/);
   assert.match(html, /Search orders/);
   assert.match(html, /Orders in motion/);
+  assert.match(html, /Website auf Deutsch anzeigen/);
+  assert.match(html, />DE</);
 });
