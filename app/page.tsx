@@ -150,13 +150,6 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flowRoute" aria-label={t.stagesLabel}>
-          {flowStages.map((stage, index) => {
-            const count = orders.filter((order) => order.status === stage).length;
-            return <div className="flowStage" key={stage}><span>0{index + 1}</span><strong>{t.status[stage]}</strong><small>{count} {count === 1 ? t.order : t.orders}</small></div>;
-          })}
-        </div>
-
         <section className="workboard" aria-labelledby="queue-title">
           <div className="boardHeader">
             <div><p className="eyebrow">{t.liveQueue}</p><h2 id="queue-title">{t.queueTitle}</h2></div>
